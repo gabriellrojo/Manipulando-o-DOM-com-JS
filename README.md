@@ -8,4 +8,4 @@
 - Delação;
 - Animação;
 - Filtrando uma Tabela;
-- AJAX: buscando pacientes na tabela com AJAX
+- AJAX: buscando pacientes na tabela com AJAX.
