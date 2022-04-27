@@ -13,6 +13,15 @@ botao.addEventListener("click", event => {
 
     let novoPaciente = registraNovoPaciente(form)
 
+    let erros = validaNovoPaciente(novoPaciente)
+    console.log(erros)
+
+    if(erros.length > 0){
+        let mensgErro = document.querySelector("#mensagem-erro")
+        mensgErro.textContent = erros
+        return 
+    }
+
     //Agora que temos como obter os valores fornecidos ao preencher o formulário, vamos criar a nosa tr (linhas) e nossos td (célular)
 
     let novosDados = criaNovaTr(novoPaciente)
@@ -22,7 +31,10 @@ botao.addEventListener("click", event => {
     let tabela = document.querySelector("#tabela-pacientes")
     tabela.appendChild(novosDados)
 
+    let ul = document.querySelector("ul")
+    ul.innerHTML = ""
     form.reset()
+
 
 
 })
@@ -60,6 +72,29 @@ function criaNovaTd(dado, classe){
 }
 
 function validaNovoPaciente(paciente){
-    if(validaPeso(paciente))
-
+    var erros = []
+    
+    if(!validaPeso(paciente.peso)){
+        erros.push("Peso Inválido")
+    }
+    if(!validaAltura(paciente.altura)){
+        erros.push("Altura Inválida")
+    }
+    if(paciente.nome.length == 0){
+        erros.push("Nome Inválido")
+    }
+    if(paciente.gordura.length == 0){
+        erros.push("Valor % de Gordura Inválido")
+    }
+    return erros
 }
+
+function mensagemErro(erros){
+    let ul = document.querySelector("#mensagem-erro")
+    erros.forEach(erro => {
+        ul.createElement("li");
+        li.textContent = erro
+        ul.appendChild(li)
+    })
+}
+

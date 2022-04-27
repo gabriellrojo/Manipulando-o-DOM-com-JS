@@ -133,10 +133,21 @@ button[disabled=disabled], button:disabled {
 	border: 1px solid red;
 }
 
-.pesoInvalido{
-	background-color: rgb(223, 134, 134);
+#mensagem-erro{
+	background-color: rgb(223, 134, 134)
 }
 
-.alturaInvalida{
-	background-color: rgb(223, 134, 134);
+.fadeout{
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.filtro{
+	width: 60%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.invisivel{
+	display:none;
 }
