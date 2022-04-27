@@ -58,3 +58,8 @@ function criaNovaTd(dado, classe){
 
     return novaTd
 }
+
+function validaNovoPaciente(paciente){
+    if(validaPeso(paciente))
+
+}

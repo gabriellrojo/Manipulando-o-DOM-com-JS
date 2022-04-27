@@ -16,15 +16,15 @@ for (c = 0; c < pacientes.length; c++){
 
     //Ao assumir os booleanos abaixo como verdadeiros, poderemos imprimir o imc na tabela através de uma condicional:
 
-    let pesoValido = true;
-    let alturaValida = true
+    let pesoValido = validaPeso(peso);
+    let alturaValida = validaAltura(altura);
 
-    if(peso <= 0 || peso >= 1000){
+    if(!pesoValido){
         tdImc.textContent = "Peso Inválido"
         pesoValido = false
         pacientes[c].classList.add("pesoInvalido")
     }
-    if(altura <= 0 || altura >= 4){
+    if(!alturaValida){
         tdImc.textContent = "Altura Inválida"
         alturaValida = false
         pacientes[c].classList.add("alturaInvalida")
@@ -40,3 +40,18 @@ function calculaImc(peso, altura){
     return imc.toFixed(2)
 }
 
+function validaPeso(peso){
+    if(peso>=0 && peso<1000){
+        return true
+    }else {
+        return false
+    }   
+}
+
+function validaAltura(altura){
+    if(altura>=0 && altura<3){
+        return true
+    }else{
+        return false
+    }
+}
