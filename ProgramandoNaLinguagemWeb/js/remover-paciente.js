@@ -1,4 +1,4 @@
-let tabela = document.querySelector("table")
+let tabela = document.querySelector("#tabela-pacientes")
 
 tabela.addEventListener("dblclick", event => {
     event.target.parentNode.classList.add("fadeout") //Através do CSS utilizamos o recurso da transição para eliminar os dados.

@@ -17,25 +17,17 @@ botao.addEventListener("click", event => {
     console.log(erros)
 
     if(erros.length > 0){
-        let mensgErro = document.querySelector("#mensagem-erro")
-        mensgErro.textContent = erros
+        mensagemErro(erros)
         return 
     }
 
     //Agora que temos como obter os valores fornecidos ao preencher o formulário, vamos criar a nosa tr (linhas) e nossos td (célular)
 
-    let novosDados = criaNovaTr(novoPaciente)
-
-    //Agora para adicionar de fato o novo paciente à tabela:
-
-    let tabela = document.querySelector("#tabela-pacientes")
-    tabela.appendChild(novosDados)
+    adicionaNovoPaciente(novoPaciente)
 
     let ul = document.querySelector("ul")
     ul.innerHTML = ""
     form.reset()
-
-
 
 })
 
@@ -92,9 +84,15 @@ function validaNovoPaciente(paciente){
 function mensagemErro(erros){
     let ul = document.querySelector("#mensagem-erro")
     erros.forEach(erro => {
-        ul.createElement("li");
+        let li = document.createElement("li");
         li.textContent = erro
         ul.appendChild(li)
     })
 }
 
+function adicionaNovoPaciente (paciente){
+    let novosDados = criaNovaTr(paciente)
+    let tabela = document.querySelector("#tabela-pacientes")
+    tabela.appendChild(novosDados)
+
+}
